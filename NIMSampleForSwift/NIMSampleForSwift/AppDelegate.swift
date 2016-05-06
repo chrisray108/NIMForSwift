@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  NIMSampleForSwift
 //
-//  Created by chrisRay on 16/5/4.
+//  Created by chris on 16/5/4.
 //  Copyright © 2016年 Netease. All rights reserved.
 //
 
@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //注入 NIMKit 内容提供者
         NIMKit.sharedKit().provider = DataProvider()
         
+        //需要自定义消息时使用
+        NIMCustomObject.registerCustomDecoder(AttachmentDecoder())
+
         return true
     }
 

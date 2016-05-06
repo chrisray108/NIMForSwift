@@ -10,12 +10,12 @@ import Foundation
 class CellLayoutConfig: NSObject, NIMCellLayoutConfig {
     func contentSize(model: NIMMessageModel!, cellWidth width: CGFloat) -> CGSize {
         //填入内容大小
-        return CGSizeMake(200, 500)
+        return CGSizeMake(200, 50)
     }
     
     func cellContent(model: NIMMessageModel!) -> String! {
         //填入自定义的气泡ContentView
-        return "ContentView"
+        return "NIMSampleForSwift.ContentView"
     }
     
     func cellInsets(model: NIMMessageModel!) -> UIEdgeInsets {
