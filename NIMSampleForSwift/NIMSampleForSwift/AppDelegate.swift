@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //注册APP，请将 NIMSDKAppKey 换成您自己申请的App Key
-        let NIMSDKAppKey: String = "8fc95f505b6cbaedf613677c8e08fc0b";
+        let NIMSDKAppKey = "8fc95f505b6cbaedf613677c8e08fc0b";
         NIMSDK.sharedSDK().registerWithAppID(NIMSDKAppKey, cerName: "");
         
         //注入 NIMKit 内容提供者

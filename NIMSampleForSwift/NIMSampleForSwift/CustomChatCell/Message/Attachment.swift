@@ -10,22 +10,20 @@ import Foundation
 
 class Attachment: NSObject, NIMCustomAttachment {
     
-    var titile: NSString = ""
-    var subTitle: NSString = ""
+    var titile = ""
+    var subTitle = ""
     
-    func encodeAttachment() -> String! {
-        let dict: Dictionary = ["title":self.titile,"subTitle":self.subTitle]
+    func encodeAttachment() -> String {
+        let dict = ["title":self.titile,"subTitle":self.subTitle]
         do {
             let data: NSData = try NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.PrettyPrinted)
-            let encodeString = String.init(data: data, encoding: NSUTF8StringEncoding)
-            return encodeString
+            if let encodeString = String.init(data: data, encoding: NSUTF8StringEncoding) {
+               return encodeString
+            }
+            return ""
         } catch {
             print(error)
             return ""
         }
-        
-        
     }
-    
-    
 }

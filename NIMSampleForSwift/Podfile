@@ -5,7 +5,7 @@ use_frameworks!
 
 target 'NIMSampleForSwift' do
 
-pod 'NIMSDK', '~> 2.2.0'
+pod 'NIMSDK', '~> 2.4.0'
 
 end
 

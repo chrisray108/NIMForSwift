@@ -56,11 +56,7 @@
     extern NSString *const NIMKitTeamInfoHasUpdatedNotification;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onTeamInfoHasUpdatedNotification:) name:NIMKitTeamInfoHasUpdatedNotification object:nil];
     extern NSString *const NIMKitUserInfoHasUpdatedNotification;
-    if ([NIMSDKConfig sharedConfig].hostUserInfos) {
-        [[NIMSDK sharedSDK].userManager addDelegate:self];
-    }else{
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserInfoHasUpdatedNotification:) name:NIMKitUserInfoHasUpdatedNotification object:nil];
-    }
+    [[NIMSDK sharedSDK].userManager addDelegate:self];
 }
 
 - (void)reload{
