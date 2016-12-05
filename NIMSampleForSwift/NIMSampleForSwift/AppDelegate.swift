@@ -14,16 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //注册APP，请将 NIMSDKAppKey 换成您自己申请的App Key
         let NIMSDKAppKey = "8fc95f505b6cbaedf613677c8e08fc0b";
-        NIMSDK.sharedSDK().registerWithAppID(NIMSDKAppKey, cerName: "");
-        
-        //注入 NIMKit 内容提供者
-        NIMKit.sharedKit().provider = DataProvider()
-        
+        NIMSDK.shared().register(withAppID: NIMSDKAppKey, cerName: "");
+                
         //需要自定义消息时使用
         NIMCustomObject.registerCustomDecoder(AttachmentDecoder())
+        
+        //注册会话布局
+        NIMKit.shared().registerLayoutConfig(CellLayoutConfig.self)
 
         return true
     }

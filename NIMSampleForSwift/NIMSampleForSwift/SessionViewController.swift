@@ -10,25 +10,19 @@ import Foundation
 
 class SessionViewController: NIMSessionViewController {
     
+    let config = SessionConfig()
+    
     override func sessionTitle() -> String {
         return "聊天"
     }
     
     override func sessionConfig() -> NIMSessionConfig {
-        return SessionConfig()
+        return config
     }
     
-    override func onTapMediaItem(item: NIMMediaItem) {
-        switch item.tag {
-        case 0:
-            self.sendCustomMessage()
-            break;
-        default:
-            break;
-        }
-    }
     
     func sendCustomMessage() {
+        
         //构造自定义内容
         let attachemnt = Attachment()
         attachemnt.titile = "这是一条自定义消息"
@@ -44,7 +38,7 @@ class SessionViewController: NIMSessionViewController {
         
         //发送消息
         do {
-            try NIMSDK.sharedSDK().chatManager.sendMessage(message, toSession: self.session)
+            try NIMSDK.shared().chatManager.send(message, to: self.session)
         } catch {
             
         }

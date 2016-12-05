@@ -1,11 +1,11 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '6.0'
 
-use_frameworks!
+# use_frameworks!
 
 target 'NIMSampleForSwift' do
 
-pod 'NIMSDK', '~> 2.4.0'
+pod 'NIMKit', '~> 1.0.4'
 
 end
 

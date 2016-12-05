@@ -13,11 +13,11 @@ class Attachment: NSObject, NIMCustomAttachment {
     var titile = ""
     var subTitle = ""
     
-    func encodeAttachment() -> String {
+    func encode() -> String {
         let dict = ["title":self.titile,"subTitle":self.subTitle]
         do {
-            let data: NSData = try NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.PrettyPrinted)
-            if let encodeString = String.init(data: data, encoding: NSUTF8StringEncoding) {
+            let data: Data = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted)
+            if let encodeString = String.init(data: data, encoding: String.Encoding.utf8) {
                return encodeString
             }
             return ""

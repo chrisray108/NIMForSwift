@@ -10,13 +10,13 @@ import Foundation
 
 
 class ContentView: NIMSessionMessageContentView {
-    var titleLabel: UILabel = UILabel(frame: CGRectZero)
-    var subTitleLabel: UILabel = UILabel(frame: CGRectZero)
+    var titleLabel: UILabel = UILabel(frame: CGRect.zero)
+    var subTitleLabel: UILabel = UILabel(frame: CGRect.zero)
     
     override init!(sessionMessageContentView: ()) {
         super.init(sessionMessageContentView: ())
-        self.titleLabel.font = UIFont.systemFontOfSize(13)
-        self.subTitleLabel.font = UIFont.systemFontOfSize(12)
+        self.titleLabel.font = UIFont.systemFont(ofSize: 13)
+        self.subTitleLabel.font = UIFont.systemFont(ofSize: 12)
         
         self.addSubview(self.titleLabel)
         self.addSubview(self.subTitleLabel)
@@ -30,7 +30,7 @@ class ContentView: NIMSessionMessageContentView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func refresh(data: NIMMessageModel!) {
+    override func refresh(_ data: NIMMessageModel!) {
         super.refresh(data)
         let object: NIMCustomObject! = data.message.messageObject as! NIMCustomObject
         let attachment: Attachment! = object.attachment as! Attachment
@@ -39,11 +39,11 @@ class ContentView: NIMSessionMessageContentView {
         self.subTitleLabel.text = attachment.subTitle as String
         
         if !self.model.message.isOutgoingMsg{
-            self.titleLabel.textColor = UIColor.blackColor()
-            self.subTitleLabel.textColor = UIColor.blackColor()
+            self.titleLabel.textColor = UIColor.black
+            self.subTitleLabel.textColor = UIColor.black
         }else{
-            self.titleLabel.textColor = UIColor.whiteColor()
-            self.subTitleLabel.textColor = UIColor.whiteColor()
+            self.titleLabel.textColor = UIColor.white
+            self.subTitleLabel.textColor = UIColor.white
         }
         
         self.titleLabel.sizeToFit()
@@ -58,11 +58,11 @@ class ContentView: NIMSessionMessageContentView {
         let subTitleOriginY: CGFloat = self.frame.size.height  - self.subTitleLabel.frame.size.height - 10;
 
         var frame: CGRect = self.titleLabel.frame;
-        frame.origin = CGPointMake(titleOriginX, titleOriginY);
+        frame.origin = CGPoint(x: titleOriginX, y: titleOriginY);
         self.titleLabel.frame = frame;
         
         frame = self.subTitleLabel.frame;
-        frame.origin = CGPointMake(subTitleOriginX, subTitleOriginY);
+        frame.origin = CGPoint(x: subTitleOriginX, y: subTitleOriginY);
         self.subTitleLabel.frame = frame;
 
     }

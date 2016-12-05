@@ -6,5 +6,4 @@
 //  Copyright © 2016年 Netease. All rights reserved.
 //
 
-#import "NIMSDK.h"
 #import "NIMKit.h"
