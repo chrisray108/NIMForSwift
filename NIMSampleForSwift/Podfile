@@ -5,7 +5,7 @@
 
 target 'NIMSampleForSwift' do
 
-pod 'NIMKit', '~> 1.0.4'
+pod 'NIMKit/Lite', '~> 2.2.1'
 
 end
 

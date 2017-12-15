@@ -10,7 +10,7 @@ import Foundation
 
 class SessionConfig: NSObject, NIMSessionConfig {
     func mediaItems() -> [NIMMediaItem]! {
-        return NIMKitUIConfig.shared().defaultMediaItems() as! [NIMMediaItem]
+        return NIMKit.shared().config.defaultMediaItems()  as! [NIMMediaItem]
     }
     
     func disableCharlet() -> Bool {

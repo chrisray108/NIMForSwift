@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NIMCustomObject.registerCustomDecoder(AttachmentDecoder())
         
         //注册会话布局
-        NIMKit.shared().registerLayoutConfig(CellLayoutConfig.self)
+        NIMKit.shared().registerLayoutConfig(CellLayoutConfig())
 
         return true
     }
